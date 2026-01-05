@@ -1,0 +1,293 @@
+/* voir.css - Style minimaliste avec boutons visibles en web */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    padding: 20px;
+    color: #333;
+    line-height: 1.4;
+}
+
+/* Conteneur principal */
+.devis-container {
+    max-width: 800px;
+    margin: 0 auto 20px;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+/* En-tête */
+.devis-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #000;
+}
+
+.left-header {
+    flex: 1;
+}
+
+.logo {
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.devis-num {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.right-header {
+    text-align: right;
+    font-size: 14px;
+}
+
+.right-header strong {
+    display: block;
+    margin-bottom: 3px;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    font-size: 13px;
+}
+
+.info-table th,
+.product-table th {
+    background-color: #f0f0f0;
+    padding: 8px 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+    font-weight: bold;
+}
+
+.info-table td,
+.product-table td {
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+}
+
+/* Alignements */
+.center { text-align: center; }
+.right { text-align: right; }
+.left { text-align: left; }
+
+/* Désignation produit */
+.designation-line1 {
+    font-weight: bold;
+    display: block;
+}
+
+.designation-line2 {
+    color: #666;
+    font-size: 12px;
+    display: block;
+    margin-top: 2px;
+}
+
+/* Totaux */
+.total-table {
+    width: 300px;
+    margin-left: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: none;
+}
+
+.total-table tr {
+    border: none;
+}
+
+.total-table td {
+    padding: 6px 10px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+}
+
+.total-table tr:last-child td {
+    border-bottom: 2px solid #000;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* Montant en lettres */
+.lettres {
+    margin: 25px 0;
+    padding: 15px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    background-color: #f9f9f9;
+}
+
+.lettres strong {
+    display: block;
+    margin-top: 5px;
+    font-size: 15px;
+}
+
+/* Informations entreprise */
+.form-group {
+    margin-top: 20px;
+    padding-top: 0px;
+    border-top: 2px solid #000;
+    font-size: 10px;
+    text-align: center;
+    color: #555;
+}
+
+.form-group strong {
+    color: #000;
+}
+
+/* Séparateurs */
+hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 15px 0;
+}
+
+/* ===== BOUTONS VISIBLES EN VERSION WEB ===== */
+.no-print {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+button {
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 3px;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #e0e0e0;
+}
+
+/* Modal (caché par défaut) */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    border: 1px solid #ddd;
+}
+
+.modal-content h3 {
+    margin-bottom: 15px;
+}
+
+.modal-content label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.modal-content select,
+.modal-content input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* ===== STYLES POUR L'IMPRESSION SEULEMENT ===== */
+@media print {
+    body {
+        background-color: white !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    .devis-container {
+        max-width: 100% !important;
+        padding: 15px !important;
+        box-shadow: none !important;
+        margin: 0 !important;
+    }
+    
+    /* Masquer les boutons lors de l'impression */
+    .no-print,
+    .actions,
+    button,
+    .modal {
+        display: none !important;
+    }
+    
+    /* Assurer que tout est noir et blanc pour l'impression */
+    * {
+        color: black !important;
+        background-color: white !important;
+    }
+    
+    /* Bordures visibles */
+    table, th, td {
+        border-color: #000 !important;
+    }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .devis-header {
+        flex-direction: column;
+    }
+    
+    .right-header {
+        text-align: left;
+        margin-top: 15px;
+    }
+    
+    .total-table {
+        width: 100%;
+    }
+    
+    .actions {
+        flex-direction: column;
+    }
+}
+
+
+
